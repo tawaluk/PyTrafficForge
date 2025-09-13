@@ -4,7 +4,7 @@ repos:
     rev: v0.13.0
     hooks:
       - id: ruff
-        args: [ --show-files]
+        args: [--statistics ]
         name: "Ruff: linting"
       - id: ruff-format
         name: "Ruff: formatting"
