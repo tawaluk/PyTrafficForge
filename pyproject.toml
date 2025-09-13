@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "pytrafficforge"
+version = "0.1.0"
+description = ""
+authors = ["tawaluk"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.116.1"
+requests = "^2.32.5"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.13.0"
+mypy = "^1.18.1"
+pytest = "^8.4.2"
+pytest-asyncio = "^1.2.0"
+pytest-cov = "^7.0.0"
+poetry-up = "^0.4.0"
+pre-commit = "^4.3.0"
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.6.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+# Переносим эти настройки в tool.ruff.lint:
+# select = ["E", "W", "F", "UP", "I", "C90", "BLE"]
+# ignore = []
+# fixable = ["ALL"]
+# unfixable = []
+line-length = 100
+show-fixes = true
+
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "UP", "I", "C90", "BLE"]
+ignore = []
+fixable = ["ALL"]
+unfixable = []
+
+
+[tool.ruff.lint.isort]
+known-first-party = ["pytrafficforge"]
+combine-as-imports = true  # Объединять импорты из одного модуля
+lines-after-imports = 2
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+show_error_codes = true

@@ -1,0 +1,25 @@
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.13.0
+    hooks:
+      - id: ruff
+        args: [ --show-files]
+        name: "Ruff: linting"
+      - id: ruff-format
+        name: "Ruff: formatting"
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.18.1
+    hooks:
+      - id: mypy
+        args: [ --show-error-codes, --strict ]
+        name: "Mypy: type checking"
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-added-large-files  # Проверка на большие файлы
+      - id: check-merge-conflict    # Проверка на конфликтные маркеры
+      - id: end-of-file-fixer        # Добавляет пустую строку в конец файла
+      - id: trailing-whitespace      # Удаляет trailing whitespace
