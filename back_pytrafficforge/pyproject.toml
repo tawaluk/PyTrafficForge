@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pytrafficforge"
+name = "back_pytrafficforge"
 version = "0.1.0"
 description = ""
 authors = ["tawaluk"]
