@@ -5,6 +5,32 @@ from dataclasses import dataclass
 from enum import Enum
 
 
+class DUTStatus(Enum):
+    """Общий статус DUT"""
+    OPERATIONAL = "operational"
+    MAINTENANCE = "maintenance"
+    TESTING = "testing"
+    FAILED = "failed"
+    OFFLINE = "offline"
+    BOOTING = "booting"
+
+
+class HealthStatus(Enum):
+    """Статус здоровья системы"""
+    HEALTHY = "healthy"
+    DEGRADED = "degraded"
+    CRITICAL = "critical"
+    UNKNOWN = "unknown"
+
+
+class ServiceStatus(Enum):
+    """Статус службы/процесса"""
+    RUNNING = "running"
+    STOPPED = "stopped"
+    FAILED = "failed"
+    RESTARTING = "restarting"
+
+
 class NetworkRole(Enum):
     """Роль сетевого интерфейса в тестировании"""
 
@@ -15,6 +41,14 @@ class NetworkRole(Enum):
     SPAN_MIRROR = "span_mirror"  # Для зеркалирования трафика
 
 
+class SoftType(Enum):
+    """Типы софтовых исполнений"""
+
+    WEB_SERVER = "web_server"
+    DATABASE =  "database"
+    FW = "fw"
+
+
 class StatusNI(Enum):
     """Статус по занятости интерфейса"""
 
@@ -23,7 +57,7 @@ class StatusNI(Enum):
     WORK = "work"
 
 
-class Protocol(Enum):
+class NetProtocols(Enum):
     """Сетевые протоколы"""
 
     TCP = "tcp"
@@ -32,6 +66,24 @@ class Protocol(Enum):
     HTTPS = "https"
     DNS = "dns"
     ICMP = "icmp"
+
+
+class GeneratorType(Enum):
+    """Типы генераторов нагрузки"""
+    SOFTWARE_PYTHON = "python"
+    SOFTWARE_RUST = "rust"
+    SOFTWARE_CPP = "cpp"
+    HARDWARE = "hardware"
+    CLOUD = "cloud"
+
+
+class TrafficProfile(Enum):
+    """Профили трафика"""
+    CONSTANT = "constant"
+    BURST = "burst"
+    SPIKE = "spike"
+    RAMP_UP = "ramp_up"
+    REALISTIC = "realistic"
 
 
 @dataclass(frozen=True)
