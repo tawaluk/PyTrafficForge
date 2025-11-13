@@ -9,6 +9,7 @@ from .elementary import NetProtocols, ServiceStatus, SoftType, StatusNI
 @dataclass
 class SoftwareService:
     """Служба/процесс"""
+
     id: str
     name: str
     version: str
@@ -23,6 +24,7 @@ class SoftwareService:
 @dataclass
 class NetworkEndpoint:
     """Сетевой endpoint"""
+
     id: str
     address: str
     port: int
@@ -34,6 +36,7 @@ class NetworkEndpoint:
 @dataclass
 class SoftwareComponentData:
     """Программный компонент"""
+
     id: str
     name: str
     version: str
@@ -46,6 +49,7 @@ class SoftwareComponentData:
 @dataclass
 class OperatingSystem:
     """Операционная система"""
+
     name: str
     version: str
     kernel: str
@@ -56,6 +60,7 @@ class OperatingSystem:
 @dataclass
 class DUTSoftwareData:
     """Данные программной части DUT - чистая DTO"""
+
     id: str
     operating_system: OperatingSystem
     components: list[SoftwareComponentData]
