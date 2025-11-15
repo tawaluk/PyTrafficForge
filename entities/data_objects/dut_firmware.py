@@ -69,9 +69,3 @@ class DUTSoftwareData:
     config_files: dict[str, str] | None = None
     boot_time: datetime | None = None
     last_update: datetime | None = None
-
-    def __post_init__(self):
-        if self.environment_vars is None:
-            self.environment_vars = {}
-        if self.config_files is None:
-            self.config_files = {}
