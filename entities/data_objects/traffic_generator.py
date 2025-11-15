@@ -1,13 +1,13 @@
 """Интерфейс генератора трафика"""
 
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime
 
 from entities.data_objects.elementary import GeneratorType, NetProtocols, TrafficProfile
 
 
-@dataclass
+@dataclass(frozen=True)
 class TrafficConfig:
     """Конфигурация трафика"""
 
@@ -22,8 +22,12 @@ class TrafficConfig:
     ttl: int | None = None
     dscp: int | None = None
 
+    def update(self, **kwargs) -> "TrafficConfig":
+        """Для осознанного изменения DTO."""
+        return replace(self, **kwargs)
 
-@dataclass
+
+@dataclass(frozen=True)
 class GeneratorCapabilities:
     """Возможности генератора"""
 
@@ -34,8 +38,12 @@ class GeneratorCapabilities:
     can_generate_malformed: bool = False
     supports_timing_analysis: bool = False
 
+    def update(self, **kwargs) -> "GeneratorCapabilities":
+        """Для осознанного изменения DTO."""
+        return replace(self, **kwargs)
 
-@dataclass
+
+@dataclass(frozen=True)
 class TrafficGeneratorData:
     """Данные генератора нагрузки - чистая DTO"""
 
@@ -43,7 +51,7 @@ class TrafficGeneratorData:
     name: str
     type: GeneratorType
     capabilities: GeneratorCapabilities
-    interface_bindings: list  # ID интерфейсов, к которым привязан
+    interface_bindings: list[str]  # ID интерфейсов, к которым привязан
 
     is_running: bool = False
     current_load: float = 0.0  # процент от максимальной
@@ -52,3 +60,7 @@ class TrafficGeneratorData:
 
     current_config: TrafficConfig | None = None
     active_profile: TrafficProfile | None = None
+
+    def update(self, **kwargs) -> "TrafficGeneratorData":
+        """Для осознанного изменения DTO."""
+        return replace(self, **kwargs)

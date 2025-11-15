@@ -8,7 +8,7 @@ from entities.data_objects.dut_firmware import DUTSoftwareData
 
 
 class IDUTSoftwareImpProvider(IDUTSoftware, Protocol):
-    """Интерфейс реализации DUT Software - объединяет данные и поведение"""
+    """Mост: данные + бизнес-логика"""
 
     @property
     def _data(self) -> DUTSoftwareData: ...

@@ -1,7 +1,7 @@
 """Самые атомарные сущности"""
 
 import ipaddress
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from enum import Enum
 
 
@@ -224,7 +224,7 @@ class Storage:
     smart_status: bool | None = None
 
 
-@dataclass
+@dataclass(frozen=True)
 class NetworkInterface:
     """Сетевой интерфейс"""
 
@@ -245,26 +245,33 @@ class NetworkInterface:
     vlan_id: int | None = None
     vlan_native: bool = False
 
+    @property
     def get_ip_addresses(self) -> list[IPv4 | IPv6]:
         """Получить все IP адреса интерфейса"""
         if self.address is None:
             return []
         return [addr for addr in self.address if isinstance(addr, (IPv4, IPv6))]
 
+    @property
     def get_ipv4_addresses(self) -> list[IPv4]:
         """Получить IPv4 адреса"""
         if self.address is None:
             return []
         return [addr for addr in self.address if isinstance(addr, IPv4)]
 
+    @property
     def get_ipv6_addresses(self) -> list[IPv6]:
         """Получить IPv6 адреса"""
         if self.address is None:
             return []
         return [addr for addr in self.address if isinstance(addr, IPv6)]
 
+    def update(self, **kwargs) -> "NetworkInterface":
+        """Для осознанного изменения DTO."""
+        return replace(self, **kwargs)
 
-@dataclass
+
+@dataclass(frozen=True)
 class GPU:
     """Графический процессор"""
 
@@ -283,8 +290,12 @@ class GPU:
     bus: str | None = None  # PCIe x16
     tdp: int | None = None  # Thermal Design Power
 
+    def update(self, **kwargs) -> "GPU":
+        """Для осознанного изменения DTO."""
+        return replace(self, **kwargs)
 
-@dataclass
+
+@dataclass(frozen=True)
 class PowerSupply:
     """Блок питания. На всякий случай"""
 
@@ -294,8 +305,12 @@ class PowerSupply:
     efficiency: str | None = None  # 80 Plus rating
     modular: bool = False  # Модульный кабели
 
+    def update(self, **kwargs) -> "PowerSupply":
+        """Для осознанного изменения DTO."""
+        return replace(self, **kwargs)
 
-@dataclass
+
+@dataclass(frozen=True)
 class TemperatureSensor:
     """Датчик температуры. На всякий случай"""
 
@@ -305,3 +320,7 @@ class TemperatureSensor:
     max_temp: float | None = None  # °C
     critical_temp: float | None = None  # °C
     location: str | None = None  # CPU, GPU, System
+
+    def update(self, **kwargs) -> "TemperatureSensor":
+        """Для осознанного изменения DTO."""
+        return replace(self, **kwargs)
