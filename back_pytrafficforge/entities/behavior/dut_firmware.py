@@ -3,9 +3,7 @@
 from typing import Protocol
 
 from entities.data_objects.dut_firmware import (
-    DUTSoftwareData,
     NetworkEndpoint,
-    SoftwareComponentData,
     SoftwareService,
 )
 from entities.data_objects.elementary import NetProtocols, SoftType
@@ -46,16 +44,12 @@ class ISoftwareComponent(
 ):
     """Композитный протокол программного компонента"""
 
-    @property
-    def data(self) -> SoftwareComponentData: ...
     def validate_dependencies(self) -> bool: ...
 
 
 class IDUTSoftware(Protocol):
     """Программная часть DUT"""
 
-    @property
-    def data(self) -> DUTSoftwareData: ...
     def get_component_by_type(self, component_type: SoftType) -> ISoftwareComponent | None: ...
     def get_all_endpoints(self) -> list[NetworkEndpoint]: ...
     def find_service_by_port(self, port: int) -> SoftwareService | None: ...
