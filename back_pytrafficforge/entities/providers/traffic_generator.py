@@ -8,11 +8,11 @@ from entities.data_objects.traffic_generator import (
 )
 
 
-class ITrafficGeneratorImplementation(Protocol):
+class ITrafficGeneratorProvider(Protocol):
     """Интерфейс реализации генератора нагрузки - объединяет данные и поведение"""
 
     @property
-    def data(self) -> TrafficGeneratorData: ...
+    def _data(self) -> TrafficGeneratorData: ...
 
     def start_traffic(self, config: TrafficConfig) -> bool: ...
     def stop_traffic(self) -> bool: ...

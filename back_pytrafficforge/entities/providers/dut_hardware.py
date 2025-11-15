@@ -9,11 +9,11 @@ from back_pytrafficforge.entities.data_objects.dut_hardware import (
 from back_pytrafficforge.entities.data_objects.elementary import NetworkRole, StatusNI
 
 
-class IDUTHardwareImplementation(Protocol):
+class IDUTHardwareProvider(Protocol):
     """Интерфейс реализации DUT Hardware - объединяет данные и поведение"""
 
     @property
-    def data(self) -> DUTHardwareData: ...
+    def _data(self) -> DUTHardwareData: ...
 
     def get_interface_by_id(self, interface_id: str) -> NetworkInterface | None: ...
     def get_free_interfaces(self) -> list[NetworkInterface]: ...
