@@ -233,9 +233,9 @@ class NetworkInterface:
     mac_address: MAC
     speed: int  # Mbps
     interface_type: str  # Ethernet, WiFi, Cellular
+    status: StatusNI
     role: list[NetworkRole]
     address: list[NetworkAddress] | None
-    status: StatusNI
 
     duplex: str | None = None  # full, half
     mtu: int = 1500
@@ -247,14 +247,20 @@ class NetworkInterface:
 
     def get_ip_addresses(self) -> list[IPv4 | IPv6]:
         """Получить все IP адреса интерфейса"""
+        if self.address is None:
+            return []
         return [addr for addr in self.address if isinstance(addr, (IPv4, IPv6))]
 
     def get_ipv4_addresses(self) -> list[IPv4]:
         """Получить IPv4 адреса"""
+        if self.address is None:
+            return []
         return [addr for addr in self.address if isinstance(addr, IPv4)]
 
     def get_ipv6_addresses(self) -> list[IPv6]:
         """Получить IPv6 адреса"""
+        if self.address is None:
+            return []
         return [addr for addr in self.address if isinstance(addr, IPv6)]
 
 

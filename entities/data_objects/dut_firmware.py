@@ -29,8 +29,8 @@ class NetworkEndpoint:
     address: str
     port: int
     protocol: NetProtocols
-    service: str | None = None
     status: StatusNI
+    service: str | None = None
 
 
 @dataclass
@@ -65,8 +65,8 @@ class DUTSoftwareData:
     operating_system: OperatingSystem
     components: list[SoftwareComponentData]
     firmware_version: str | None = None
-    environment_vars: dict[str, str] = None
-    config_files: dict[str, str] = None
+    environment_vars: dict[str, str] | None = None
+    config_files: dict[str, str] | None = None
     boot_time: datetime | None = None
     last_update: datetime | None = None
 
