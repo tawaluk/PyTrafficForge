@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 
-from .elementary import NetProtocols, ServiceStatus, SoftType, StatusNI
+from entities.data_objects.elementary import NetProtocols, ServiceStatus, SoftType, StatusNI
 
 
 @dataclass

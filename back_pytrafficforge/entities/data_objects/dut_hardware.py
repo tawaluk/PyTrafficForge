@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 
-from .elementary import (
+from entities.data_objects.elementary import (
     CPU,
     GPU,
     RAM,

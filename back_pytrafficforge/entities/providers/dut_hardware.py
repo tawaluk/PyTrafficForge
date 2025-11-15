@@ -2,12 +2,12 @@
 
 from typing import Protocol
 
-from back_pytrafficforge.entities.behavior.dut_hardware import (
+from entities.behavior.dut_hardware import (
     IHardwareManager,
     IHardwareMonitor,
     IHardwareStatusManager,
 )
-from back_pytrafficforge.entities.data_objects.dut_hardware import DUTHardwareData
+from entities.data_objects.dut_hardware import DUTHardwareData
 
 
 class IDUTHardwareProvider(IHardwareManager, IHardwareMonitor, IHardwareStatusManager, Protocol):

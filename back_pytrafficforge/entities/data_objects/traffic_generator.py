@@ -43,7 +43,7 @@ class TrafficGeneratorData:
     name: str
     type: GeneratorType
     capabilities: GeneratorCapabilities
-    interface_bindings: list[]  # ID интерфейсов, к которым привязан
+    interface_bindings: list  # ID интерфейсов, к которым привязан
 
     is_running: bool = False
     current_load: float = 0.0  # процент от максимальной

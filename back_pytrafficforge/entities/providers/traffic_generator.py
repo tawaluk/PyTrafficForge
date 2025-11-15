@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from back_pytrafficforge.entities.behavior.traffic_generator import (
+from entities.behavior.traffic_generator import (
     IAdvancedTrafficFeatures,
     IGeneratorMonitor,
     ITrafficConfigurator,

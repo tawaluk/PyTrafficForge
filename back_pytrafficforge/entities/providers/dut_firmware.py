@@ -3,8 +3,8 @@
 
 from typing import Protocol
 
-from back_pytrafficforge.entities.behavior.dut_firmware import IDUTSoftware
-from back_pytrafficforge.entities.data_objects.dut_firmware import DUTSoftwareData
+from entities.behavior.dut_firmware import IDUTSoftware
+from entities.data_objects.dut_firmware import DUTSoftwareData
 
 
 class IDUTSoftwareImpProvider(IDUTSoftware, Protocol):
