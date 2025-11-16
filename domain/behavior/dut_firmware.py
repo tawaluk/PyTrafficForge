@@ -2,11 +2,11 @@
 
 from typing import Protocol
 
-from entities.data_objects.dut_firmware import (
+from domain.data_objects.dut_firmware import (
     NetworkEndpoint,
     SoftwareService,
 )
-from entities.data_objects.elementary import NetProtocols, SoftType
+from domain.data_objects.elementary import NetProtocols, SoftType
 
 
 class IServiceManager(Protocol):

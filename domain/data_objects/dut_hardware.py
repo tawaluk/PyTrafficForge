@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass, replace
 
-from entities.data_objects.elementary import (
+from domain.data_objects.elementary import (
     CPU,
     GPU,
     RAM,

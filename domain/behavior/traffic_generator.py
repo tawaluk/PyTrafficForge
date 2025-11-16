@@ -2,8 +2,8 @@
 
 from typing import Any, Protocol
 
-from entities.data_objects.elementary import NetProtocols
-from entities.data_objects.traffic_generator import TrafficConfig, TrafficProfile
+from domain.data_objects.elementary import NetProtocols
+from domain.data_objects.traffic_generator import TrafficConfig, TrafficProfile
 
 
 class ITrafficController(Protocol):

@@ -3,7 +3,7 @@
 from dataclasses import dataclass, replace
 from datetime import datetime
 
-from entities.data_objects.elementary import NetProtocols, ServiceStatus, SoftType, StatusNI
+from domain.data_objects.elementary import NetProtocols, ServiceStatus, SoftType, StatusNI
 
 
 @dataclass(frozen=True)

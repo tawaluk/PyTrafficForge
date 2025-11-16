@@ -2,12 +2,12 @@
 
 from typing import Protocol
 
-from entities.behavior.dut_hardware import (
+from domain.behavior.dut_hardware import (
     IHardwareManager,
     IHardwareMonitor,
     IHardwareStatusManager,
 )
-from entities.data_objects.dut_hardware import DUTHardwareData
+from domain.data_objects.dut_hardware import DUTHardwareData
 
 
 class IDUTHardwareProvider(IHardwareManager, IHardwareMonitor, IHardwareStatusManager, Protocol):

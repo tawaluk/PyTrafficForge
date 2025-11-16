@@ -2,8 +2,8 @@
 
 from typing import Protocol
 
-from entities.data_objects.dut_hardware import NetworkInterface
-from entities.data_objects.elementary import NetworkRole, StatusNI
+from domain.data_objects.dut_hardware import NetworkInterface
+from domain.data_objects.elementary import NetworkRole, StatusNI
 
 
 class IHardwareManager(Protocol):

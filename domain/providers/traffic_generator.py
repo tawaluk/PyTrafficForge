@@ -1,12 +1,12 @@
 from typing import Protocol
 
-from entities.behavior.traffic_generator import (
+from domain.behavior.traffic_generator import (
     IAdvancedTrafficFeatures,
     IGeneratorMonitor,
     ITrafficConfigurator,
     ITrafficController,
 )
-from entities.data_objects.traffic_generator import TrafficGeneratorData
+from domain.data_objects.traffic_generator import TrafficGeneratorData
 
 
 class ITrafficGeneratorProvider(

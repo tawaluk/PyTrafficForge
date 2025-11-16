@@ -3,8 +3,8 @@
 
 from typing import Protocol
 
-from entities.behavior.dut_firmware import IDUTSoftware
-from entities.data_objects.dut_firmware import DUTSoftwareData
+from domain.behavior.dut_firmware import IDUTSoftware
+from domain.data_objects.dut_firmware import DUTSoftwareData
 
 
 class IDUTSoftwareImpProvider(IDUTSoftware, Protocol):

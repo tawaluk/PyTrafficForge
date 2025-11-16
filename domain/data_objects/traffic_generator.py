@@ -4,7 +4,7 @@
 from dataclasses import dataclass, replace
 from datetime import datetime
 
-from entities.data_objects.elementary import GeneratorType, NetProtocols, TrafficProfile
+from domain.data_objects.elementary import GeneratorType, NetProtocols, TrafficProfile
 
 
 @dataclass(frozen=True)
